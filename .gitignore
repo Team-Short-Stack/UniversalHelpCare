@@ -4,3 +4,4 @@ dist/
 .env.development
 .pnpm-store/
 .DS_Store
+.bluebox/
