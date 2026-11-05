@@ -88,6 +88,14 @@ Open <http://localhost:5050>, note the code on screen, then call your Twilio num
 
 Quick check that the tunnel reaches your server: `curl https://YOUR-NGROK-URL/healthz` should print `{"ok":true,...}`.
 
+## 5. Optional: send traces and metrics to Bluebox
+
+Telemetry stays off until `OTEL_EXPORTER_OTLP_ENDPOINT` is set. To turn it on, copy the Bluebox block from
+`.env.example` into `.env`. On the Bluebox Setup page, click **Reveal token**, then **Copy token**, and paste the
+whole `OTEL_EXPORTER_OTLP_HEADERS="..."` line into `.env`. `npm run dev` and `npm start` load it from there.
+
+Logs are not sent to Bluebox, because request logs carry selfie tokens and client IPs. They stay on stdout.
+
 ## If something goes wrong
 
 | Symptom | Likely cause |
